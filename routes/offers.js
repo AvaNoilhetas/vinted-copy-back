@@ -131,11 +131,61 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
   }
 });
 
-router.put("/offer/update", isAuthenticated, async (req, res) => {
+router.put("/offer/update/:id", isAuthenticated, async (req, res) => {
   try {
-    res.status(200).json();
+    const {
+      title,
+      description,
+      price,
+      city,
+      brand,
+      size,
+      condition,
+      color
+    } = req.fields;
+
+    let offer = await Offer.findOne(req.param.id);
+
+    if (title) {
+      offer.product_name = title;
+    }
+    if (description) {
+      offer.product_description = description;
+    }
+    if (price) {
+      offer.product_price = price;
+    }
+
+    const details = offer.product_details;
+
+    for (let i = 0; i < details.length; i++) {
+      if (details[i].brand && brand) {
+        details[i].brand = brand;
+      } else if (details[i].size && size) {
+        details[i].size = size;
+      } else if (details[i].condition && condition) {
+        details[i].condition = condition;
+      } else if (details[i].color && color) {
+        details[i].color = color;
+      } else if (details[i].city && city) {
+        details[i].city = city;
+      }
+    }
+
+    offer.markModified("product_details");
+
+    if (req.files.image) {
+      const result = await cloudinary.uploader.upload(req.files.image.path, {
+        folder: `/vinted/offers/${offer._id}`
+      });
+      offer.product_image = result;
+    }
+
+    await offer.save();
+
+    res.status(200).json("Offer modified succesfully ! 🎉");
   } catch (error) {
-    res.status(400).json({ message: error });
+    res.status(400).json({ message: error.message });
   }
 });
 
