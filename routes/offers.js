@@ -60,7 +60,7 @@ router.get("/offers", async (req, res) => {
         path: "owner",
         select: "account"
       })
-      .select("product_name product_price owner");
+      .select("product_name product_details product_image product_price owner");
 
     const count = await Offer.countDocuments();
 
