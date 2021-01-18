@@ -12,7 +12,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-router.post("/user/signup", async (req, res) => {
+router.post("/user/sign_up", async (req, res) => {
   const { email, password, username, phone } = req.fields;
 
   try {

@@ -10,7 +10,7 @@ app.use(formidableMiddleware());
 const usersRoute = require("./routes/users");
 const offersRoute = require("./routes/offers");
 
-app.use(usersRoute, offersRoute, cors());
+app.use(cors(), usersRoute, offersRoute);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
