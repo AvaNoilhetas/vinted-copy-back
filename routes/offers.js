@@ -80,7 +80,7 @@ router.get("/offer/:id", async (req, res) => {
       path: "owner",
       select: "account"
     });
-    res.status(200).json(offer);
+    res.status(200).json([offer]);
   } catch (error) {
     res.status(400).json({ message: error });
   }
