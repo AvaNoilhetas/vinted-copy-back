@@ -38,11 +38,13 @@ router.post("/user/sign_up", async (req, res) => {
         salt: salt
       });
 
-      const img = await cloudinary.uploader.upload(req.files.avatar.path, {
-        folder: `/vinted/users/${newUser._id}`
-      });
+      if (req.files.avatar) {
+        const img = await cloudinary.uploader.upload(req.files.avatar.path, {
+          folder: `/vinted/users/${newUser._id}`
+        });
 
-      newUser.account.avatar = img.secure_url;
+        newUser.account.avatar = img.secure_url;
+      }
 
       await newUser.save();
 
@@ -55,7 +57,6 @@ router.post("/user/sign_up", async (req, res) => {
         },
         token: newUser.token
       });
-      //res.status(200).json("Votre compte a été créé ! 🎉");
     }
   } catch (error) {
     res.status(400).json({ message: error });
