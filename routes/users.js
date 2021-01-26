@@ -84,7 +84,7 @@ router.post("/user/login", async (req, res) => {
       res.status(200).json(userData);
       //res.send(`Recoucou ${user[0].account.username}! 👋`);
     } else {
-      res.status(401).json(`Unauthorized 🙅‍`);
+      res.status(401).json(`Non autorisé 🙅‍`);
     }
   } catch (error) {
     res.status(400).json({ message: error });

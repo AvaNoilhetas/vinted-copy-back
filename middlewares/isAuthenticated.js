@@ -7,13 +7,13 @@ const isAuthenticated = async (req, res, next) => {
     }).select("avatar account email _id");
 
     if (!user) {
-      return res.status(401).json({ error: "Unauthorized 🙅" });
+      return res.status(401).json({ error: "Non autorisé 🙅" });
     } else {
       req.user = user;
       return next();
     }
   } else {
-    return res.status(401).json({ error: "unauthorized 🙅" });
+    return res.status(401).json({ error: "Non autorisé 🙅" });
   }
 };
 
