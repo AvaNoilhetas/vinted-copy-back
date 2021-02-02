@@ -6,6 +6,7 @@ const encBase64 = require("crypto-js/enc-base64");
 const uid2 = require("uid2");
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -82,7 +83,6 @@ router.post("/user/login", async (req, res) => {
         }
       };
       res.status(200).json(userData);
-      //res.send(`Recoucou ${user[0].account.username}! 👋`);
     } else {
       res.status(401).json(`Non autorisé 🙅‍`);
     }
