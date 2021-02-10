@@ -1,4 +1,5 @@
 const express = require("express");
+import escapeStringRegexp from "escape-string-regexp";
 const router = express.Router();
 const isAuthenticated = require("./../middlewares/isAuthenticated");
 const Offer = require("./../models/offers");
@@ -15,7 +16,10 @@ router.get("/offers", async (req, res) => {
     let filters = {};
 
     if (req.query.title) {
-      filters.product_name = new RegExp(req.query.title, "i");
+      filters.product_name = new RegExp(
+        escapeStringRegexp(req.query.title),
+        "i"
+      );
     }
 
     if (req.query.priceMin) {
