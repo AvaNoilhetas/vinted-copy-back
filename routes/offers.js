@@ -1,5 +1,5 @@
 const express = require("express");
-import escapeStringRegexp from "escape-string-regexp";
+const escapeStringRegexp = require("escape-string-regexp");
 const router = express.Router();
 const isAuthenticated = require("./../middlewares/isAuthenticated");
 const Offer = require("./../models/offers");
