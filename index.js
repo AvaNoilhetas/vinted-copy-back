@@ -10,13 +10,18 @@ let corsOptions = {
 };
 
 app.disable("x-powered-by");
-app.use(formidableMiddleware());
 
 const usersRoute = require("./routes/users");
 const offersRoute = require("./routes/offers");
 const paymentRoute = require("./routes/payment");
 
-app.use(cors(corsOptions), usersRoute, offersRoute, paymentRoute);
+app.use(
+  cors(corsOptions),
+  formidableMiddleware(),
+  usersRoute,
+  offersRoute,
+  paymentRoute
+);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
