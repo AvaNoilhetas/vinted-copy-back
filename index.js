@@ -5,23 +5,13 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 
-let corsOptions = {
-  origin: process.env.FRONT_WEB_SITE
-};
-
 app.disable("x-powered-by");
 
 const usersRoute = require("./routes/users");
 const offersRoute = require("./routes/offers");
 const paymentRoute = require("./routes/payment");
 
-app.use(
-  cors(corsOptions),
-  formidableMiddleware(),
-  usersRoute,
-  offersRoute,
-  paymentRoute
-);
+app.use(cors(), formidableMiddleware(), usersRoute, offersRoute, paymentRoute);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
