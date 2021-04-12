@@ -33,9 +33,6 @@
 
 ## API
 
----
----
-
 ### OFFERS
 
 #### Get all offers
@@ -46,7 +43,7 @@ Method : `GET`
 
 Ex : https://vinted-copy-project.herokuapp.com/offers
 
----
+<br/>
 
 #### Get offer by id
 
@@ -56,7 +53,7 @@ Method : `GET`
 
 Ex : https://vinted-copy-project.herokuapp.com/offer/5fa1d3dd30596000177366dd
 
----
+<br/>
 
 #### Publish an offer
 
@@ -78,7 +75,7 @@ Method : `POST`
 
 Ex : https://vinted-copy-project.herokuapp.com/offer/publish
 
----
+<br/>
 
 #### Update an offer
 
@@ -100,7 +97,7 @@ Method : `PUT`
 
 Ex : https://vinted-copy-project.herokuapp.com/offer/publish/5fa1d3dd30596000177366dd
 
----
+<br/>
 
 #### Delete an offer
 
@@ -114,7 +111,7 @@ Method : `DELETE`
 
 Ex : https://vinted-copy-project.herokuapp.com/offer/delete
 
----
+<br/>
 
 ---
 
@@ -136,7 +133,7 @@ Method : `POST`
 
 Ex : https://vinted-copy-project.herokuapp.com/user/sign_up
 
----
+<br/>
 
 #### User sign in
 
@@ -151,7 +148,7 @@ Method : `POST`
 
 Ex : https://vinted-copy-project.herokuapp.com/user/sign_in
 
----
+<br/>
 
 ---
 
