@@ -1,4 +1,4 @@
-<h1 align="center"> 👗 VINTED BACK END API 👗 </h1>
+<h1 align="center">👗 VINTED BACK END API 👗</h1>
 
 <p align="center"><a href="https://vinted-copy-project.herokuapp.com/">See the API</a></p>
 
